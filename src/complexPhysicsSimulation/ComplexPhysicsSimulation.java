@@ -1,5 +1,10 @@
 package complexPhysicsSimulation;
 
+/*
+ * An abstract physical process in which the behavior and interaction of particles in different environments 
+ * is described by complex mathematical operations. 
+ * It may represent the quantum mechanical behavior of some kind of microscopic particle
+ */
 public class ComplexPhysicsSimulation {
 	public static void main(String[] args) {
 		if (args.length < 2) {
@@ -7,41 +12,52 @@ public class ComplexPhysicsSimulation {
 			return;
 		}
 
-		double inputA = Double.parseDouble(args[0]);
-		double inputB = Double.parseDouble(args[1]);
+		double initialParticleState = Double.parseDouble(args[0]);
+		double additionalEnvironmentParameter = Double.parseDouble(args[1]);
 
-		double intermediateResult1 = func1(inputA);
-		double intermediateResult2 = func2(intermediateResult1);
-		double finalResult = func3(inputA, inputB, intermediateResult2);
+		double behaviorInComplexField = simulateParticleBehaviorInComplexField(initialParticleState);
+		double behaviorInAdditionalEnvironment = simulateParticleBehaviorInAdditionalEnvironment(
+				behaviorInComplexField);
+		double finalParticleState = combineParticleStates(initialParticleState, additionalEnvironmentParameter,
+				behaviorInAdditionalEnvironment);
 
-		finalResult = Math.round(finalResult * 100) * 1.0 / 100;
-		System.out.println(finalResult);
+		finalParticleState = Math.round(finalParticleState * 100) * 1.0 / 100;
+		System.out.println(finalParticleState);
 	}
 
-	// Function 1: Simulates a complex physical process using input parameter a
-	// Input range suggestion: a should be within [1.0, 100.0]
-	public static double func1(double a) {
+	// Simulates particle behavior in a complex potential field, where parameter 'a'
+	// represents the initial state of the particle
+	// Simulate the motion and interaction of particles in a potential energy field
+	// Input range suggestion: 'a' should be within [1.0, 100.0]
+	public static double simulateParticleBehaviorInComplexField(double a) {
 		// Complex calculation involving logarithms, exponentials, and trigonometric
 		// functions
-		double result1 = Math.log(Math.pow(a, 3)) * Math.exp(Math.sin(a));
-		return result1 % 100000;
+		double resultInComplexField = Math.log(Math.pow(a, 3)) * Math.exp(Math.sin(a));
+		return resultInComplexField % 100000;
 	}
 
-	// Function 2: Simulates another complex physical process using intermediate
-	// result
+	// Represents particle behavior in an additional physical environment, where
+	// this environment is described by the result of
+	// simulateParticleBehaviorInComplexField
+	// Simulate the response of particles in a new environment
 	// No input parameter used
-	public static double func2(double intermediateResult) {
+	public static double simulateParticleBehaviorInAdditionalEnvironment(double intermediateResult) {
 		// Complex calculation involving exponentials, square roots, and absolute values
-		double result2 = Math.abs(Math.sqrt(intermediateResult) * Math.exp(0.5));
-		return result2 % 100000;
+		double resultInAdditionalEnvironment = Math.abs(Math.sqrt(intermediateResult) * Math.exp(0.5));
+		return resultInAdditionalEnvironment % 100000;
 	}
 
-	// Function 3: Combines input parameters a, b, and intermediate result in a
-	// meaningful way
-	// Input range suggestion: a and b should be within [0.1, 10.0]
-	public static double func3(double a, double b, double intermediateResult) {
+	// Combines initial parameters 'a' and 'b' with the result of
+	// simulateParticleBehaviorInAdditionalEnvironment, involving more complex
+	// mathematical operations
+	// Simulate the interaction and final state of particles in two different
+	// environments
+	// Input range suggestion: 'a' and 'b' should be within [0.1, 10.0]
+	public static double combineParticleStates(double initialParticleState, double additionalEnvironmentParameter,
+			double behaviorInAdditionalEnvironment) {
 		// Complex calculation involving division, addition, and power functions
-		double finalResult = (Math.pow(a, 2) + b) / (intermediateResult + 1.0);
-		return finalResult % 100000;
+		double finalParticleState = (Math.pow(initialParticleState, 2) + additionalEnvironmentParameter)
+				/ (behaviorInAdditionalEnvironment + 1.0);
+		return finalParticleState % 100000;
 	}
 }
